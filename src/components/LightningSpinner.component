@@ -1,0 +1,41 @@
+<!--
+  /**
+  * LightningSpinner.component
+  * Description: Loading GIF for page actions
+  * @author: Ben Edwards (ben@cloudinit.nz)
+  * @date: 8th November 2016
+  */
+ -->
+<apex:component layout="none">
+	
+	<!-- Include jQuery to do the simple show/hide logic -->
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" />
+
+	<div class="slds-spinner_container slds-hide">
+		<div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+			<div class="slds-spinner__dot-a"></div>
+			<div class="slds-spinner__dot-b"></div>
+		</div>
+	</div>
+	
+	<script>
+		function showSpinner() {
+			$('.slds-spinner_container').removeClass('slds-hide');
+			$('.slds-spinner_container').addClass('slds-show');	
+		
+			var winWidth = $(document).width();
+			var winHeight = $(document).height();
+			 
+			$('.slds-spinner_container').css({ 'width': winWidth,'height': winHeight });				   
+		}
+		 
+		function hideSpinner() {  
+					   
+			$('.slds-spinner_container').removeClass('slds-show');
+			$('.slds-spinner_container').addClass('slds-hide');	
+		} 
+	</script>
+
+	<apex:actionStatus id="loading" onstart="showSpinner();" onstop="hideSpinner();" />
+
+</apex:component>

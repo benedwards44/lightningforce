@@ -1,0 +1,54 @@
+<apex:page standardController="Opportunity" title="{!Opportunity.Name} - Create Contract" docType="html-5.0">
+
+	<!-- Incorporate the Salesforce Lightning Design System stylesheet -->
+    <apex:stylesheet value="{!URLFOR($Resource.SLDS212, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />  
+
+    <!-- Wrap the page in the custom CSS namespace - .mycompany -->
+    <div class="mycompany">
+
+    	<apex:form id="pageForm">
+
+	    	<!-- The loading GIF for page actions -->
+			<c:LightningSpinner />
+
+			<div class="slds-page-header" role="banner">
+	
+				<div class="slds-grid">
+	
+					<div class="slds-col slds-has-flexi-truncate">
+						<div class="slds-media slds-media--center slds-no-space slds-grow">
+							<div class="slds-media__figure">
+								<span class="slds-avatar slds-avatar--medium" >
+									<img src="{!URLFOR($Resource.SLDS212, 'assets/icons/standard/opportunity_120.png')}" alt="{!Opportunity.Name}" />   
+								</span>
+							</div>
+							<div class="slds-media__body">
+								<p class="slds-text-heading--label">{!Opportunity.Name}</p>
+								<h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle" title="Create Contract">Create Contract</h1>
+							</div>
+						</div>
+					</div>
+	
+					<div class="slds-col slds-no-flex slds-grid slds-align-bottom">
+						
+						<div class="slds-button-group" role="group">  
+							<apex:commandButton styleClass="slds-button slds-button--neutral" value="Cancel" action="{!cancel}" status="loading" />
+						</div>
+					</div>
+	
+				</div>			  
+	
+			</div>
+
+			<div class="slds-grid slds-wrap slds-grid--pull-padded">
+				<div class="slds-col--padded slds-size--1-of-1">
+					<!-- Custom page messages component -->
+					<c:LightningPageMessages />
+				</div>
+			</div>
+
+		</apex:form>
+
+    </div>
+	
+</apex:page>
